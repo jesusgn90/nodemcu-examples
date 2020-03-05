@@ -13,9 +13,9 @@ If you are interested on learning, you may want to visit some other places:
 # Table of contents
 
 - **Temperature and humidity**
-    - [Read and print DHT11](DHT11/README.md)
+    - [Read and print DHT11](DHT11/)
 - **Networking**
-    - [Connect to Wi-Fi](WIFI/README.md)
+    - [Connect to Wi-Fi](WIFI/)
 
 ## Contribute
 

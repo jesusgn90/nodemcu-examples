@@ -13,9 +13,10 @@ If you are interested on learning, you may want to visit some other places:
 # Table of contents
 
 - **Temperature and humidity**
-    - [Read and print DHT11](DHT11/)
+    - [DHT11](DHT11/)
 - **Networking**
-    - [Connect to Wi-Fi](WIFI/)
+    - [Wi-Fi](WIFI/)
+    - [MQTT](MQTT/)
 
 ## Contribute
 
@@ -23,7 +24,8 @@ Feel free to add your examples or to create issues. Just follow this structure w
 
 ```
 example/
-  |__README.md (explain what it does)
+  |__README.md (explain what it does and what's needed to make it work)
   |__example.ino (the code)
   |__diagram (or include it in the README.md)
+  |__screenshots
 ```

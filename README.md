@@ -18,6 +18,8 @@ If you are interested on learning, you may want to visit some other places:
     - [Wi-Fi](WIFI/)
     - [MQTT](MQTT/)
 
+![nodemcu](./nodemcu.png)
+
 ## Contribute
 
 Feel free to add your examples or to create issues. Just follow this structure when adding examples:

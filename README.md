@@ -17,6 +17,8 @@ If you are interested on learning, you may want to visit some other places:
 - **Networking**
     - [Wi-Fi](WIFI/)
     - [MQTT](MQTT/)
+- **LCD**
+    - [LCD](LCD/)
 
 ![nodemcu](./nodemcu.png)
 

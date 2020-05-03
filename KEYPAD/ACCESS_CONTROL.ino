@@ -43,8 +43,10 @@ void setup(){
   pinMode(R_LED, OUTPUT); //Set pin 11 as an output 
   pinMode(G_LED, OUTPUT); //Set pin 12 as an output
   
+void forceOff () {	
   digitalWrite(R_LED, LOW); //Force OFF
-  digitalWrite(G_LED, LOW); //Force OFF  
+  digitalWrite(G_LED, LOW); //Force OFF
+}
 }
 
 void loop(){
@@ -58,32 +60,31 @@ void keypadEvent(KeypadEvent eKey){
 	Serial.print("Pressed: ");
 	Serial.println(eKey);
 	switch (eKey){
-	  case '*': checkPassword(); break;
-	  case '#': password.reset(); break;
+    case '*':
+	checkPassword();
+    break;
+    case '#':
+	password.reset();
+    break;
 	  default: password.append(eKey);
      }
   }
 }
 
 //Checking the password
-void checkPassword(){
+void checkPassword() {
 
 //Password correct
-  if (password.evaluate()){
+  if (password.evaluate()) {
     Serial.println("Success"); 
     digitalWrite(R_LED, LOW);
-    digitalWrite(G_LED, HIGH);
-    delay(2000); //Wait 2 seconds
-    digitalWrite(R_LED, LOW);
-    digitalWrite(G_LED, LOW);
-    
+    digitalWrite(G_LED, HIGH);    
   //Password incorrect  
-  }else{
+  } else {
     Serial.println("Wrong");
     digitalWrite(R_LED, HIGH);
     digitalWrite(G_LED, LOW);
-    delay(2000); //Wait 2 seconds
-    digitalWrite(R_LED, LOW);
-    digitalWrite(G_LED, LOW);
   }
+delay(2000);
+forceOff();
 }

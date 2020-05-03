@@ -1,7 +1,7 @@
 {
-  "name": "dht11",
+  "name": "mqtt-raspberry-client",
   "version": "1.0.0",
-  "description": "Read humidity from DHT11 and send it to ThingsBoard",
+  "description": "Subscribe to MQTT topic and send result to ThingsBoard",
   "main": "index.js",
   "scripts": {
     "lint": "eslint -c .eslintrc.js src/**/*.ts src/*.ts",
@@ -15,7 +15,6 @@
   "dependencies": {
     "axios": "^0.19.2",
     "mqtt": "^3.0.0",
-    "node-dht-sensor": "^0.4.0"
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",

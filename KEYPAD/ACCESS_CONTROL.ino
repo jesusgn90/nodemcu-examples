@@ -6,22 +6,22 @@ If the password is correct, a green LED lights up, but if It´s incorrect, a red
 */
 
 //Include the necessary libraries
-#include <Password.h> //Include Password library
-#include <Keypad.h> //Include Keypad library
+#include <Password.h>   //Password library
+#include <Keypad.h>     //Keypad library
 
 //Define the desired password
-Password password = Password( "123456789" ); //Define the password
+Password password = Password ( "0000" ); //Define the password
 
 //Include actuators
 int R_LED = 11; //Red LED attach to digital pin 11
 int G_LED = 12; //Green LED attach to digital pin 12
 
-//Define Keypad number of ROWS and COLS
+//Define Keypad number of ROWS and COLUMS
 const byte ROWS = 4; //Four rows
 const byte COLS = 4; //Four colums
 
 //Define Keypad KEYMAP
-char keys[ROWS][COLS] = {
+char keys[ROWS][COLS] ={
   {'1','2','3','A'},
   {'4','5','6','B'},
   {'7','8','9','C'},
@@ -33,58 +33,76 @@ byte rowPins[ROWS] = {9,8,7,6}; //Row1 attach to digital pin 9, Row2 attach to d
 byte colPins[COLS] = {5,4,3,2}; //Colum1 attach to digital pin 5, Colum2 attach to digital pin 4 [...]
 
 //Create the Keypad variable
-Keypad keypad = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS );
+Keypad keypad = Keypad (makeKeymap (keys), rowPins, colPins, ROWS, COLS);
 
+//FUNCTIONS
 void setup(){
 
-  Serial.begin(9600);
-  keypad.addEventListener(keypadEvent); //Keypad listener
+  Serial.begin (9600);
+  keypad.addEventListener (keypadEvent); //Keypad listener
   
-  pinMode(R_LED, OUTPUT); //Set pin 11 as an output 
-  pinMode(G_LED, OUTPUT); //Set pin 12 as an output
-  
-void forceOff () {	
-  digitalWrite(R_LED, LOW); //Force OFF
-  digitalWrite(G_LED, LOW); //Force OFF
-}
+  pinMode (R_LED, OUTPUT); //Set pin 11 as an output 
+  pinMode (G_LED, OUTPUT); //Set pin 12 as an output
+} 
+
+//Turn Off both LEDs
+void forceOff(){  
+  digitalWrite (R_LED, LOW); 
+  digitalWrite (G_LED, LOW); 
 }
 
 void loop(){
   keypad.getKey();
 }
 
-//Special events such as serial monitor visualitation
 void keypadEvent(KeypadEvent eKey){
   switch (keypad.getState()){
+    
     case PRESSED:
-	Serial.print("Pressed: ");
-	Serial.println(eKey);
-	switch (eKey){
+      Serial.print("Pressed: ");
+      Serial.println(eKey);
+      
+  switch (eKey){
+    
     case '*':
-	checkPassword();
+      checkPassword();
     break;
+    
     case '#':
-	password.reset();
+      password.reset();
     break;
-	  default: password.append(eKey);
-     }
+    
+    default: password.append(eKey);
   }
+ }
 }
 
 //Checking the password
-void checkPassword() {
+void checkPassword(){
 
 //Password correct
+
   if (password.evaluate()) {
-    Serial.println("Success"); 
+    
+    Serial.println("Success");
+     
     digitalWrite(R_LED, LOW);
-    digitalWrite(G_LED, HIGH);    
-  //Password incorrect  
+    digitalWrite(G_LED, HIGH);  
+      
+//Password incorrect  
+
   } else {
+    
     Serial.println("Wrong");
+    
     digitalWrite(R_LED, HIGH);
     digitalWrite(G_LED, LOW);
   }
+
+//Wait 2 seconds
 delay(2000);
+
+//Turn off both LEDs
 forceOff();
+
 }

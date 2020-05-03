@@ -1,0 +1,38 @@
+{
+  "name": "dht11",
+  "version": "1.0.0",
+  "description": "Read humidity from DHT11 and send it to ThingsBoard",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint -c .eslintrc.js src/**/*.ts src/*.ts",
+    "build": "yarn lint && rimraf ./dist && tsc",
+    "start": "yarn build && node dist/index.js",
+    "test:unit": "yarn build && jest tests",
+    "test:unit:ci": "yarn build && jest tests --ci --runInBand"
+  },
+  "author": "Jesús Ángel González Novez",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "mqtt": "^3.0.0",
+    "node-dht-sensor": "^0.4.0"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/axios-mock-adapter": "^1.10.0",
+    "@types/jest": "^24.9.0",
+    "@types/node": "^13.9.0",
+    "@typescript-eslint/eslint-plugin": "^2.17.0",
+    "@typescript-eslint/parser": "^2.17.0",
+    "axios-mock-adapter": "^1.17.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-eslint-comments": "^3.1.2",
+    "eslint-plugin-eslint-plugin": "^2.2.1",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-jest": "^23.6.0",
+    "jest": "^25.1.0",
+    "rimraf": "^3.0.1",
+    "ts-jest": "^25.0.0",
+    "typescript": "^3.7.5"
+  }
+}

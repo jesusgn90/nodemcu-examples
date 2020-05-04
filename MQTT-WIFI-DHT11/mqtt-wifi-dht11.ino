@@ -67,20 +67,7 @@ void reconnect()
   }
 }
 
-void setup()
-{
-  Serial.begin(BAUD_RATE);
-  // Init DHT
-  DHT.begin();
-
-  // Configure Wi-Fi connection
-  setup_wifi();
-
-  // Configure broker server
-  client.setServer(mqtt_server, MQTT_PORT);
-}
-
-void loop()
+void processData()
 {
   // Connect the MQTT client
   if (!client.connected())
@@ -98,4 +85,28 @@ void loop()
   Serial.println(msg);
   client.publish(publish_topic, msg);
   delay(2000);
+}
+
+void setup()
+{
+  Serial.begin(BAUD_RATE);
+  // Init DHT
+  DHT.begin();
+
+  // Configure Wi-Fi connection
+  setup_wifi();
+
+  // Configure broker server
+  client.setServer(mqtt_server, MQTT_PORT);
+  
+  // Read sensors, send data, etc
+  processData();
+  
+  // Time the device should sleep (10 * 1000000us = 10s)
+  ESP.deepSleep(10 * 1000000);
+}
+
+void loop()
+{
+  
 }

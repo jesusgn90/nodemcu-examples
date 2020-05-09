@@ -1,33 +1,25 @@
+// ESP8266 or ARDUINO with 16x2 i2c LCD
+// Compatible with the Arduino IDE 1.8.3
+// Library https://github.com/lucasmaziero/LiquidCrystal_I2C
+// Original Library https://github.com/fdebrabander/Arduino-LiquidCrystal-I2C-library
+// Standard for ESP8266 with 4-SDA 5-SCL or ARDUINO with A4-SDA A5-SCL and LCD 16x2 display
+// and access from ESP8266: lcd.begin(sda,scl) or ARDUINO: lcd.begin()
 #include <LiquidCrystal_I2C.h>
 
-// Construct an LCD object and pass it the 
-// I2C address, width (in characters) and
-// height (in characters). Depending on the
-// Actual device, the IC2 address may change.
-LiquidCrystal_I2C lcd(0x3F, 16, 2);
+// Set the LCD address to 0x27 for a 16 chars and 2 line display
+LiquidCrystal_I2C lcd(0x27, 16, 2);
 
-void setup() {
-
-  // The begin call takes the width and height. This
-  // Should match the number provided to the constructor.
-  lcd.begin(16,2);
-  lcd.init();
-
-  // Turn on the backlight.
-  lcd.backlight();
-
-  // Move the cursor characters to the right and
-  // zero characters down (line 1).
-  lcd.setCursor(5, 0);
-
-  // Print HELLO to the screen, starting at 5,0.
-  lcd.print("HELLO");
-
-  // Move the cursor to the next line and print
-  // WORLD.
-  lcd.setCursor(5, 1);      
-  lcd.print("WORLD");
+void setup()
+{
+  lcd.begin();
+  lcd.backlight();  
+  lcd.setCursor(0, 0);
+  lcd.print("NodeMCU");
+  lcd.setCursor(0, 1);
+  lcd.print("Test");
 }
 
-void loop() {
+void loop()
+{
+
 }

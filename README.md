@@ -14,6 +14,7 @@ If you are interested on learning, you may want to visit some other places:
 
 - **Temperature and humidity**
     - [DHT11](DHT11/)
+    - [MQTT-WIFI-DHT11](MQTT-WIFI-DHT11/)
 - **Networking**
     - [Wi-Fi](WIFI/)
     - [MQTT](MQTT/)
@@ -26,10 +27,7 @@ If you are interested on learning, you may want to visit some other places:
 
 Feel free to add your examples or to create issues. Just follow this structure when adding examples:
 
-```
-example/
-  |__README.md (explain what it does and what's needed to make it work)
-  |__example.ino (the code)
-  |__diagram (or include it in the README.md)
-  |__screenshots
-```
+- README.md
+  - What it does and components used.
+  - Fritzing-like diagram which exactly matches with the provided code.
+  - The code in a `.ino` file.

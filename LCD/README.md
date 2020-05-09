@@ -1,3 +1,3 @@
 See https://github.com/johnrickman/LiquidCrystal_I2C for reference.
 
-![wiring](wiring-lcd-nodemcu.jpg)
+![diagram.png](diagram.png)

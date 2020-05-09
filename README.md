@@ -29,5 +29,5 @@ Feel free to add your examples or to create issues. Just follow this structure w
 
 - README.md
   - What it does and components used.
-  - Fritzing-like diagram which exactly matches with the provided code.
-  - The code in a `.ino` file.
+- Fritzing-like diagram (PNG) which exactly matches with the provided code.
+- The code in a `.ino` file.

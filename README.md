@@ -12,6 +12,8 @@ If you are interested on learning, you may want to visit some other places:
 
 # Table of contents
 
+- **Pressure**
+    - [BMP280](BMP280/)
 - **Temperature and humidity**
     - [DHT11](DHT11/)
     - [MQTT-WIFI-DHT11](MQTT-WIFI-DHT11/)

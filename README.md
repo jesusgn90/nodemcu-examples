@@ -1,6 +1,6 @@
 # NodeMCU utilities
 
-![Compile and verify sketches](https://github.com/jesusgn90/nodemcu-examples/workflows/Compile%20and%20verify%20sketches/badge.svg)
+![Compile and verify sketches](https://github.com/jesusgn90/nodemcu-examples/workflows/Compile%20and%20verify%20sketches/badge.svg?branch=master)
 
 > :warning: This repository is just for the hobby and, probably, poorly maintained. 
 

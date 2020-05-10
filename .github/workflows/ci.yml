@@ -23,20 +23,17 @@ jobs:
           arduino-cli core update-index
           arduino-cli core install esp8266:esp8266
 
-          # Install custom libraries
-          ls /home/runner
-          ls /home/runner/Arduino
-          pwd
-          # LiquidCrystal_I2C lib
-          curl -Lkso liquidcrystal.zip https://github.com/lucasmaziero/LiquidCrystal_I2C/archive/master.zip
-          unzip liquidcrystal.zip -d /home/runner/Arduino/libraries
-          rm -f liquidcrystal.zip
-
           # Install well known libraries
           arduino-cli lib install \
             "Adafruit BMP280 Library" \
             "PubSubClient" \
             "DHT sensor library"
+
+          # Install custom libraries
+          # LiquidCrystal_I2C lib
+          curl -Lkso liquidcrystal.zip https://github.com/lucasmaziero/LiquidCrystal_I2C/archive/master.zip
+          unzip liquidcrystal.zip -d ~/Arduino/libraries
+          rm -f liquidcrystal.zip
 
       - name: Compile sketches
         run: |

@@ -1,6 +1,6 @@
 name: Compile and verify sketches
 
-on: [push, pull_request]
+on: [push]
 
 jobs: 
   compile:

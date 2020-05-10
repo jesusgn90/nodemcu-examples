@@ -32,6 +32,8 @@ jobs:
           rm -f liquidcrystal.zip
           # Adafruit BMP280
           arduino-cli lib install "Adafruit BMP280 Library"
+          # MQTT
+          arduino-cli lib install "PubSubClient"
       - name: Compile sketches
         run: |
           for i in `find . -name "*.ino" -type f`; do

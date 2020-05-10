@@ -12,7 +12,7 @@ jobs:
       - name: Setup Arduino CLI
         uses: arduino/setup-arduino-cli@v1.0.0
 
-      - name: Install platform (ESP8266)
+      - name: Install platform
         run: |
           arduino-cli config init
           echo "
@@ -23,6 +23,8 @@ jobs:
           arduino-cli core update-index
           arduino-cli core install esp8266:esp8266
 
+      - name: Install libraries
+        run: |
           # Install well known libraries
           arduino-cli lib install \
             "Adafruit BMP280 Library" \

@@ -22,6 +22,7 @@ jobs:
           " > arduino-cli.yaml
           arduino-cli core update-index
           arduino-cli core install esp8266:esp8266
+          # FIXME: atm this is only installing DHT library, it should add all libraries needed by repo!
           arduino-cli lib install "DHT sensor library"
 
       - name: Compile sketches

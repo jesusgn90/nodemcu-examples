@@ -32,6 +32,8 @@ jobs:
       - name: Compile sketches
         run: |
           for i in `find . -name "*.ino" -type f`; do
-            arduino-cli compile --verify --fqbn esp8266:esp8266:nodemcu "$i"
+            cp "$i" "/tmp/$i"
+            arduino-cli compile --verify --fqbn esp8266:esp8266:nodemcu "/tmp/$i" -o "/tmp/$i.bin"
+            rm -f "/tmp/$i" "/tmp/$i.bin"
           done
           

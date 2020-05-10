@@ -26,4 +26,7 @@ jobs:
 
       - name: Compile sketches
         run: |
-          arduino-cli compile --verify --fqbn esp8266:esp8266:nodemcu ./DHT11/dht11.ino
+          for i in `find . -name "*.ino" -type f`; do
+            arduino-cli compile --verify --fqbn esp8266:esp8266:nodemcu "$i"
+          done
+          

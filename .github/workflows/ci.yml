@@ -23,8 +23,14 @@ jobs:
           arduino-cli core update-index
           arduino-cli core install esp8266:esp8266
           # FIXME: atm this is only installing DHT library, it should add all libraries needed by repo!
+          # DHT lib
           arduino-cli lib install "DHT sensor library"
-
+          # LiquidCrystal_I2C lib
+          curl -Lkso liquidcrystal.zip https://github.com/lucasmaziero/LiquidCrystal_I2C/archive/master.zip
+          unzip liquidcrystal.zip
+          mkdir ~/Arduino/libraries/LiquidCrystal_I2C
+          cp LiquidCrystal_I2C-master/LiquidCrystal_I2C.h ~/Arduino/libraries
+          cp LiquidCrystal_I2C-master/LiquidCrystal_I2C.cpp ~/Arduino/libraries
       - name: Compile sketches
         run: |
           for i in `find . -name "*.ino" -type f`; do

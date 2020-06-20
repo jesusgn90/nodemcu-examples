@@ -1,14 +1,35 @@
 import mqtt from 'mqtt'
-import axios from 'axios'
 import {
   MQTT_SERVER,
   MQTT_SERVER_CONFIG,
   TOPICS,
   EVENT_TYPES,
 } from './helpers'
+import * as Influx from 'influx'
 
-const TB_TOKEN = 'TB_TOKEN'
-const END_POINT = `http://192.168.1.132:8080/api/v1/${TB_TOKEN}/telemetry`
+const influx = new Influx.InfluxDB({
+  // Replace with InfluxDB database name
+  database: 'nodemcu_dht11_01',
+  // Replace with InfluxDB sever address
+  host: '192.168.1.132',
+  // Replace with InfluxDB sever port
+  port: 8086,
+  // Replace with your InfluxDB login
+  username: 'telegraf',
+  password: 'secretpassword',
+  schema: [
+    {
+      measurement: TOPICS.SUBSCRIBE,
+      fields: {
+        temperature: Influx.FieldType.FLOAT,
+        humidity: Influx.FieldType.FLOAT,
+      },
+      tags: [
+        TOPICS.SUBSCRIBE,
+      ],
+    },
+  ],
+})
 
 const client  = mqtt.connect(MQTT_SERVER, MQTT_SERVER_CONFIG)
 
@@ -31,7 +52,13 @@ const messageCallback = async (topic: string, message: Buffer): Promise<void> =>
   try {
     parsedJSON = JSON.parse(message.toString())
     if (parsedJSON) {
-      await axios.post(END_POINT, parsedJSON)
+      await influx.writePoints([
+        {
+          measurement: TOPICS.SUBSCRIBE,
+          tags: { [TOPICS.SUBSCRIBE]: TOPICS.SUBSCRIBE },
+          fields: { ...parsedJSON },
+        },
+      ])
     }
   // eslint-disable-next-line no-empty
   } catch { }

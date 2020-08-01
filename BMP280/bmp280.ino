@@ -27,12 +27,18 @@ void setup(void)
  
 void loop()
 {
-  float pressure = bmp280.readPressure() / 100.0F;
- 
+  float pressure_hPa = bmp280.readPressure() / 100.0F;  // Print pressure in hPa
+  //float pressure_atm = pressure_hPa * 0.00102;          // Print pressure in atm
+  //float pressure_Pa = pressure_hPa * 100;               // Print pressure in Pa
+  //float pressure_bar = pressure_hPa / 1000;             // Print pressure in bar
+  //float pressure_Torr = pressure_hPa * 0.75;            // Print pressure in Torr
+  //float pressure_mmWS = pressure_hPa * 102;             // Print pressure in mmWS
+  //float pressure_psi = pressure_hPa *0.0145;            // Print pressure in psi
+
   Serial.print("Pressure = ");
-  Serial.print(pressure);
+  Serial.print(pressure_hPa);                             // Replace with the desired unit
   Serial.println(" hPa");
- 
-  delay(1000);  
+
+  delay(1000);
 }
  

@@ -2,7 +2,7 @@
 
 ![Compile and verify sketches](https://github.com/jesusgn90/nodemcu-examples/workflows/Compile%20and%20verify%20sketches/badge.svg?branch=master)
 
-> :warning: This repository is just for the hobby and, probably, poorly maintained. 
+> :warning: This repository is just for the hobby and, probably, poorly maintained.
 
 If you are interested on learning, you may want to visit some other places:
 
@@ -24,6 +24,8 @@ If you are interested on learning, you may want to visit some other places:
     - [MQTT](MQTT/)
 - **LCD**
     - [LCD](LCD/)
+- **WEBSERVER**
+    - [WEBSERVER](WEBSERVER/)
 
 ![nodemcu](./nodemcu.png)
 
